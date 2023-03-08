@@ -29,11 +29,35 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             roundScore += dice1 + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
+            // show notification and wait 5 seconds
+            showNotification("You got two 6s, we will switch player after 5 seconds!!")
             //Next player
             nextPlayer();
         }
     }
 });
+
+
+
+function showNotification(message) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.innerText = message;
+
+    document.body.appendChild(notification);
+
+    return new Promise(function (resolve) {
+        setTimeout(function () {
+            notification.remove();
+            overlay.remove();
+            resolve();
+        }, 5000);
+    });
+}
 
 
 document.querySelector('.btn-hold').addEventListener('click', function () {
