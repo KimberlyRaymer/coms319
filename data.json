@@ -2,12 +2,22 @@
     "instructions": [
         "The game has 2 players, playing in rounds.",
         "In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score.",
-        "BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn.",
+        "BUT, if the player rolls 1's, all his ROUND score gets lost. After that, it's the next player's turn.",
         "Also,A player looses his ENTIRE score when he rolls two 6. After that, it's the next player's turn.",
         "The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn.",
         "The first player to reach 100 points on GLOBAL score wins the game.",
         "Also there is an input field so you can set the final score to whatever positive value you want.",
         "if the user enter negative or null value the final score will be the initial value (100). ",
         "Good luck!"
+    ],
+    "imageDescriptions": [
+        "Figure 1: Player 1 is Your player",
+        "Figure 2: The control buttons",
+        "Figure 3: The entire game board"
+    ],
+    "image_id": [
+        "userPlayer",
+        "gameBttns",
+        "gameBoard"
     ]
 }

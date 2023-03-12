@@ -4,137 +4,197 @@
  * Date march 7th, 2023
  */ -->
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Game Instructions</title>
     <style>
-        li,
-        h3 {
-            margin: 20px;
-        }
+      li,
+      h3 {
+        margin: 20px;
+      }
 
-        nav {
-            padding: 20px;
-        }
+      nav {
+        padding: 20px;
+      }
 
-        nav a {
-            color: #112a4b;
-            font-size: 25px;
-            text-decoration: none;
-        }
+      nav a {
+        color: #112a4b;
+        font-size: 25px;
+        text-decoration: none;
+      }
 
-        nav h3 {
-            display: inline-block;
-            color: white;
-            font-size: 25px;
-        }
+      nav h3 {
+        display: inline-block;
+        color: white;
+        font-size: 25px;
+      }
 
-        nav li {
-            display: inline-block;
-            list-style-position: inside;
-        }
+      nav li {
+        display: inline-block;
+        list-style-position: inside;
+      }
 
-        nav li a:hover {
-            font-weight: bold;
-        }
+      nav li a:hover {
+        font-weight: bold;
+      }
 
-        body {
-            background-color: rgba(62, 20, 20, 0.4);
-        }
+      body {
+        background-color: rgba(62, 20, 20, 0.4);
+        background-image: linear-gradient(
+            rgba(62, 20, 20, 0.4),
+            rgba(62, 20, 20, 0.4)
+          ),
+          url("./myotherimages/game.jpg");
+        background-size: cover;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        h1 {
-            font-size: 60px;
-            color: rgb(247, 242, 247);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
+      h1 {
+        font-size: 50px;
+        color: rgb(247, 242, 247);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
 
-        p {
-            font-family: Arial, Helvetica, sans-serif;
-            color: rgb(247, 242, 247);
-            font-size: 20px;
-            text-align: center;
-        }
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(247, 242, 247);
+        font-size: 20px;
+        text-align: center;
+      }
 
+      /*col, row for images */
+      .column {
+        float: left;
+        width: 15%;
+        padding-right: 50px;
+      }
+      .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
 
-        #readme-btn {
-            margin: 20px auto;
-            display: block;
-            padding: 10px 20px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+      #readme-btn {
+        margin: 20px auto;
+        display: block;
+        padding: 10px 20px;
+        border: 2px solid rgb(201, 91, 2);
+        background-color: rgb(201, 91, 2);
+        color: white;
+        font-size: 16px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border-radius: 10px;
+        cursor: pointer;
+      }
 
-        #center {
-            width: 400px;
-            margin: auto;
-        }
+      #center {
+        width: 400px;
+        margin: auto;
+      }
 
-        #data-list {
-            list-style: none;
-            padding: 0;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
-            margin: 0 auto;
-            max-width: 500px;
-        }
+      #data-list {
+        list-style: none;
+        padding: 10px 10px 0px 20px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+        /* margin: 0 auto; */
+        max-width: 100px;
+      }
 
-        #data-list li {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+      #data-list li {
+        padding: 10px;
+        width: 400px;
+        margin: 10px 0;
+        background-color: #112a4b56;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #captionImages {
+        display: inline-block;
+        white-space: pre;
+      }
+
     </style>
-    <script>
+    <script type="text/javascript">
+      window.onload = function () {
+        const dataList = document.getElementById("data-list");
+        //const captions = document.getElementById("captionImages");
+        // Replace the URL with the URL of your JSON file
+        fetch("data.json")
+          .then((response) => response.json())
+          .then((jsonData) => {
+            // Clear the existing data from the list
+            dataList.innerHTML = "";
+            
+            // Get the instructions array from the JSON data
+            const instructions = jsonData.instructions;
+            const captions = jsonData.imageDescriptions;
 
-        window.onload = function () {
-            const readmeBtn = document.getElementById('readme-btn');
-            const dataList = document.getElementById('data-list');
-            readmeBtn.addEventListener('click', () => {
-                // Replace the URL with the URL of your JSON file
-                fetch('data.json')
-                    .then(response => response.json())
-                    .then(jsonData => {
-                        // Clear the existing data from the list
-                        dataList.innerHTML = '';
-
-                        // Get the instructions array from the JSON data
-                        const instructions = jsonData.instructions;
-
-                        // Add each instruction to the list
-                        instructions.forEach(instruction => {
-                            const li = document.createElement('li');
-                            li.textContent = instruction;
-                            dataList.appendChild(li);
-                        });
-                    })
-                    .catch(error => console.error(error));
+            // Add each instruction to the list
+            instructions.forEach((instruction) => {
+              const li = document.createElement("li");
+              li.textContent = instruction;
+              dataList.appendChild(li);
             });
-        }
-    </script>
-</head>
 
-<body>
+            var str="";
+            captions.forEach((caption) => {
+                str += caption ;
+                str += "                      ";
+            });
+            document.getElementById("captionImages").innerHTML = str;
+
+          })
+          .catch((error) => console.error(error));
+      };
+    </script>
+  </head>
+
+  <body>
     <div id="page-container">
-        <nav>
-            <h3>Dice Game</h3>
-            <ul>
-                <li><a href="index.html"> Home </a></li>
-                <li><a href="About.html"> About </a></li>
-                <li><a href="login_signup.html"> Login/Sigup </a></li>
-                <li><a href="game-instructions.html"> Game Instructions </a></li>
-                <li><a href="game.html"> Game </a></li>
-            </ul>
-        </nav>
+      <nav>
+        <h3>Dice Game</h3>
+        <ul>
+          <li><a href="index.html"> Home </a></li>
+          <li><a href="About.html"> About </a></li>
+          <li><a href="login_signup.html"> Login/Sigup </a></li>
+          <li><a href="game-instructions.html"> Game Instructions </a></li>
+          <li><a href="game.html"> Game </a></li>
+        </ul>
+      </nav>
     </div>
     <h1 id="center">Game Instructions</h1>
-    <button id="readme-btn">Read Instructions</button>
-    <ul id="data-list"></ul>
+    <div id="captionImages" style="padding: 20px 0px 0px 560px;"></div>
+    <div class="row">
+      <div class="column">
+        <ul id="data-list"></ul>
+      </div>
+     
+      <div class="column">
+        <img
+          src="./myotherimages/yourPlayer.PNG"
+          alt="userPlayer"
+          style="padding: 30px 0px 0px 200px"
+        />
+      </div>
 
-</body>
+      <div class="column">
+        <img
+          src="./myotherimages/gameBttns.PNG"
+          alt="userPlayer"
+          style="padding: 30px 0px 0px 200px"
+        />
+      </div>
 
+
+      <div class="column">
+        <img
+          src="./myotherimages/twoOnes.PNG"
+          alt="userPlayer"
+          style="padding: 30px 0px 0px 100px; width: 250%"
+        />
+      </div>
+
+    </div>
+  </body>
 </html>

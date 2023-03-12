@@ -30,7 +30,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
             // show notification and wait 5 seconds
-            showNotification("You got two 6s, we will switch player after 5 seconds!!")
+            showNotification("You got two 6s, we will switch player after 2 seconds!!")
             //Next player
             nextPlayer();
         }
@@ -55,7 +55,7 @@ function showNotification(message) {
             notification.remove();
             overlay.remove();
             resolve();
-        }, 5000);
+        }, 2000);
     });
 }
 
