@@ -23,21 +23,34 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         document.getElementById('dice-1').src = './images/' + 'dice-' + dice1 + '.png';
         document.getElementById('dice-2').src = './images/' + 'dice-' + dice2 + '.png';
 
-        //3. Update the round score IF the rolled number was NOT a 6
-        if (dice1 !== 6 && dice2 !== 6) {
-            //Add score
+        //3. Update the round score IF the rolled number was NOT a 1 OR 6.
+
+        if (dice1 === 6 && dice2 === 6) {
+            scores[activePlayer] = 0;
+            showNotification("You got two 6s, YOU LOST YOUR ENTIRE SCORE, we will switch player after 5 seconds!!");
+            document.querySelector('#score-' + activePlayer).textContent = '0';
+            // next player
+            nextPlayer();
+        } else if (dice1 === 1 && dice2 === 1) {
+            showNotification("You got two 1s, YOU LOST ONLY YOUR CURRENT SCORE, we will switch player after 5 seconds!!");
+            // next player
+            nextPlayer();
+        } else {
             roundScore += dice1 + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
+<<<<<<< HEAD
         } else {
             // show notification and wait 5 seconds
             showNotification("You got two 6s, we will switch player after 2 seconds!!")
             //Next player
             nextPlayer();
+=======
+
+>>>>>>> fd4c3c6782166d10d700812187dd648ff9e2a00b
         }
+
     }
 });
-
-
 
 function showNotification(message) {
     const overlay = document.createElement('div');
@@ -47,9 +60,9 @@ function showNotification(message) {
     const notification = document.createElement('div');
     notification.classList.add('notification');
     notification.innerText = message;
-
     document.body.appendChild(notification);
-
+    // thanks prof. Abraham Netzahualcoy I learned promises from him
+    // I found it very useful!!!
     return new Promise(function (resolve) {
         setTimeout(function () {
             notification.remove();
