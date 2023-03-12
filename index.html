@@ -1,46 +1,152 @@
 <!DOCTYPE html>
+<!-- /**
+ * @author Kimberly Raymer
+ * Date march 7th, 2023
+ */ -->
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-  <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-  <link type="text/css" rel="stylesheet" href="./styles/style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: rgba(62, 20, 20, 0.4);
+    }
 
-  <title>Dice Game</title>
+    h1 {
+      font-size: 60px;
+      color: rgb(247, 242, 247);
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      color: rgb(247, 242, 247);
+      font-size: 20px;
+      text-align: center;
+    }
+
+    li,
+    h3 {
+      margin: 20px;
+    }
+
+    nav {
+      padding: 20px;
+    }
+
+    nav a {
+      color: #112a4b;
+      font-size: 25px;
+      text-decoration: none;
+    }
+
+    nav h3 {
+      display: inline-block;
+      color: white;
+      font-size: 25px;
+    }
+
+    nav li {
+      display: inline-block;
+      list-style-position: inside;
+    }
+
+    nav li a:hover {
+      font-weight: bold;
+    }
+
+    main {
+      padding-top: 200px;
+    }
+
+    #center {
+      width: 400px;
+      margin: auto;
+    }
+
+    input[type=text],
+    input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    button {
+      border: 2px solid rgb(157, 189, 183);
+      background-color: rgb(157, 189, 183);
+      color: white;
+      padding: 16px 32px;
+      box-shadow: 5px 5px 5px rgb(54, 52, 54);
+      display: inline-block;
+      font-size: 16px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 4px 0px 0px 110px;
+      border-radius: 15px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    button:hover {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+    }
+
+    /* For footer */
+    #page-container {
+      position: relative;
+      min-height: 100vh;
+    }
+
+    #content-wrap {
+      padding-bottom: 2.5rem;
+    }
+
+    #footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem;
+    }
+  </style>
+  <title>Home Page</title>
 </head>
 
 <body>
-  <div class="wrapper clearfix">
-    <div class="player-0-panel active">
-      <div class="player-name" id="name-0">Player 1</div>
-      <div class="player-score" id="score-0">43</div>
-      <div class="player-current-box">
-        <div class="player-current-label">Current</div>
-        <div class="player-current-score" id="current-0">11</div>
-      </div>
-    </div>
-
-    <div class="player-1-panel">
-      <div class="player-name" id="name-1">Player 2</div>
-      <div class="player-score" id="score-1">72</div>
-      <div class="player-current-box">
-        <div class="player-current-label">Current</div>
-        <div class="player-current-score" id="current-1">0</div>
-      </div>
-    </div>
-
-    <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
-    <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
-    <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
-
-    <input type="text" placeholder="Final score" class="final-score">
-
-    <img src="./images/dice-5.png" alt="Dice" class="dice" id="dice-1">
-    <img src="./images/dice-5.png" alt="Dice" class="dice" id="dice-2">
+  <div id="page-container">
+    <nav>
+      <h3>Dice Game</h3>
+      <ul>
+        <li><a href="index.html"> Home </a></li>
+        <li><a href="About.html"> About </a></li>
+        <li><a href="login_signup.html"> Login/Sigup </a></li>
+        <li><a href="game-instructions.html"> Game Instructions </a></li>
+        <li><a href="game.html"> Game </a></li>
+      </ul>
+    </nav>
+    <main id="center">
+      <h1 style="text-align: center">Let's Roll the dice!</h1>
+      <p>Start playing against your friends</p>
+      <form action="login_signup.html" method="get" target="_blank">
+        <button>Login/Signup</button>
+      </form>
+    </main>
   </div>
-
-  <script src="index.js"></script>s
+  <footer id="footer">
+    <p>
+      Authors: mohd19 and kmraymer
+    </p>
+  </footer>
 </body>
 
 </html>
