@@ -38,15 +38,6 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         } else {
             roundScore += dice1 + dice2;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
-<<<<<<< HEAD
-        } else {
-            // show notification and wait 5 seconds
-            showNotification("You got two 6s, we will switch player after 2 seconds!!")
-            //Next player
-            nextPlayer();
-=======
-
->>>>>>> fd4c3c6782166d10d700812187dd648ff9e2a00b
         }
 
     }
