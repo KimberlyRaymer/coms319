@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- /**
+ * @author Mohammed Abdalgader
+ * Date march 7th, 2023
+ */ -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Game Instructions</title>
+    <style>
+        li,
+        h3 {
+            margin: 20px;
+        }
+
+        nav {
+            padding: 20px;
+        }
+
+        nav a {
+            color: #112a4b;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        nav h3 {
+            display: inline-block;
+            color: white;
+            font-size: 25px;
+        }
+
+        nav li {
+            display: inline-block;
+            list-style-position: inside;
+        }
+
+        nav li a:hover {
+            font-weight: bold;
+        }
+
+        body {
+            background-color: rgba(62, 20, 20, 0.4);
+        }
+
+        h1 {
+            font-size: 60px;
+            color: rgb(247, 242, 247);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(247, 242, 247);
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+        #readme-btn {
+            margin: 20px auto;
+            display: block;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #center {
+            width: 400px;
+            margin: auto;
+        }
+
+        #data-list {
+            list-style: none;
+            padding: 0;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        #data-list li {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            const readmeBtn = document.getElementById('readme-btn');
+            const dataList = document.getElementById('data-list');
+            readmeBtn.addEventListener('click', () => {
+                // Replace the URL with the URL of your JSON file
+                fetch('data.json')
+                    .then(response => response.json())
+                    .then(jsonData => {
+                        // Clear the existing data from the list
+                        dataList.innerHTML = '';
+
+                        // Get the instructions array from the JSON data
+                        const instructions = jsonData.instructions;
+
+                        // Add each instruction to the list
+                        instructions.forEach(instruction => {
+                            const li = document.createElement('li');
+                            li.textContent = instruction;
+                            dataList.appendChild(li);
+                        });
+                    })
+                    .catch(error => console.error(error));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="page-container">
+        <nav>
+            <h3>Dice Game</h3>
+            <ul>
+                <li><a href="index.html"> Home </a></li>
+                <li><a href="About.html"> About </a></li>
+                <li><a href="login_signup.html"> Login/Sigup </a></li>
+                <li><a href="game-instructions.html"> Game Instructions </a></li>
+                <li><a href="game.html"> Game </a></li>
+            </ul>
+        </nav>
+    </div>
+    <h1 id="center">Game Instructions</h1>
+    <button id="readme-btn">Read Instructions</button>
+    <ul id="data-list"></ul>
+
+</body>
+
+</html>
